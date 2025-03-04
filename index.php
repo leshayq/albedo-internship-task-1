@@ -58,39 +58,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <input type="hidden" id="serverError" name="serverError" value="">
                 <section id="general__section" class="tab">
                     <div class="form__field">
-                        <label>First name</label>
+                        <label for="first-name__input">First name <span class="required">*</span></label>
                         <input name='first-name__input' type="text" required value="<?= htmlspecialchars($post_data['first_name']) ?>">
                     </div>
 
                     <div class="form__field">
-                        <label>Last name</label>
+                        <label for="last-name__input">Last name <span class="required">*</span></label>
                         <input name='last-name__input' type="text" required value="<?= htmlspecialchars($post_data['last_name']) ?>">
                     </div>
 
                     <div class="form__field">
-                        <label>Birthdate</label>
-                        <input type="date" name="date__input" value="2024-03-03" required value="<?= htmlspecialchars($post_data['birthdate']) ?>">
+                        <label for="date__input">Birthdate <span class="required">*</span></label>
+                        <input type="date" name="date__input" max="{{ today }}" required value="<?= htmlspecialchars($post_data['birthdate']) ?>">
                     </div>
 
                     <div class="form__field">
-                        <label>Report Subject</label>
+                        <label for="report-subject__input">Report Subject <span class="required">*</span></label>
                         <input name='report-subject__input' type="text" required value="<?= htmlspecialchars($post_data['report_subject']) ?>">
                     </div>
 
                     <div class="form__field">
-                        <label>Country</label>
+                        <label for="country__input">Country <span class="required">*</span></label>
                         <select name="country__input" id="countrySelect" required>
                             <option value="">Select a country</option>
                         </select>
                     </div>
 
                     <div class="form__field">
-                        <label>Phone</label>
+                        <label for="phone__input">Phone <span class="required">*</span></label>
                         <input name='phone__input' type="tel" required value="<?= htmlspecialchars($post_data['phone']) ?>">
                     </div>
 
                     <div class="form__field">
-                        <label>Email</label>
+                        <label for="email__input">Email <span class="required">*</span></label>
                         <input name='email__input' type="email" required value="<?= htmlspecialchars($post_data['email']) ?>">
                     </div>
 

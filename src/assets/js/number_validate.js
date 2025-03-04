@@ -6,9 +6,13 @@ inp.onclick = function() {
 
 var old = 0;
 
-inp.onkeydown = function() {
+inp.onkeydown = function(event) {
     var curLen = inp.value.length;
     
+    if(isNaN(event.key) && event.key !== 'Backspace') {
+      event.preventDefault();
+    }
+
     if (curLen < old){
       old--;
       return;

@@ -263,3 +263,8 @@ td img {
 .overlay.hidden {
     display: none;
 }
+
+.required {
+    color: red;
+    font-weight: bold;
+}

@@ -1,5 +1,18 @@
 var currentTab = 0;
 
+const dateInput = document.querySelector('input[type="date"]');
+const today = new Date().toISOString().split('T')[0];
+dateInput.max = today;
+
+document.querySelectorAll("input[name='first-name__input'], input[name='last-name__input']")
+    .forEach(input => {
+        input.addEventListener("input", function () {
+            this.value = this.value.replace(/[^\p{L}\s-]/gu, ""); 
+        });
+    });
+    
+
+
 if (localStorage.getItem("currentTab")) {
     currentTab = parseInt(localStorage.getItem("currentTab"));
 }
@@ -42,6 +55,39 @@ function nextPrev(n) {
 
     showTab(currentTab);
 }
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector(".form");
+
+    form.querySelectorAll("input, select, textarea").forEach(field => {
+        const savedValue = localStorage.getItem(field.name);
+        if (savedValue) {
+            if (field.type === "checkbox" || field.type === "radio") {
+                field.checked = savedValue === "true";
+            } else {
+                field.value = savedValue;
+            }
+        }
+    });
+
+    form.addEventListener("input", function (event) {
+        const field = event.target;
+        if (field.name) {
+            if (field.type === "checkbox" || field.type === "radio") {
+                localStorage.setItem(field.name, field.checked);
+            } else {
+                localStorage.setItem(field.name, field.value);
+            }
+        }
+    });
+
+    form.addEventListener("submit", function () {
+        form.querySelectorAll("input, select, textarea").forEach(field => {
+            localStorage.removeItem(field.name);
+        });
+    });
+});
 
 function submitForm() {
     var form = document.querySelector("form");
