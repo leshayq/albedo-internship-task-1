@@ -1,0 +1,265 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(to right, #f9fafb, #e4e7eb);
+}
+
+h1, h2, h3, h4, h5 {
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.page {
+    display: flex;
+    flex-direction: column;
+}
+
+.page__content {
+    padding: 20px;
+}
+
+.google__map {
+    width: 100%;
+    min-width: 100%;
+}
+
+.form__title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1f2937;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 25%;
+}
+
+.form__field {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form__field label {
+    font-size: 1.1rem;
+    color: #374151;
+    margin-bottom: 8px;
+}
+
+input, select {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background-color: #f9fafb;
+    transition: all 0.3s ease-in-out;
+}
+
+select {
+    padding: 12px 5px !important;
+}
+
+textarea {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    background-color: #f9fafb;
+    resize: vertical;
+}
+
+.form__field input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    background-color: #fff;
+}
+
+.tab {
+    display: none;
+}
+
+
+#nextBtn {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    max-width: 25%;
+    margin-top: 20px;
+    align-self: flex-end;
+}
+
+#nextBtn:hover {
+    background-color: #2563eb;
+}
+
+.social__links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.social__links i {
+    font-size: 6rem;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+    cursor: pointer;
+}
+
+.social__links i:hover {
+    color: #3b82f6;
+}
+
+.all-members__link {
+    display: flex;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-top: 50px;
+    color: black;
+    transition: color 0.3s ease;
+}
+
+.all-members__link:hover {
+    color: #3b82f6;
+}
+
+.participants__container {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+.participants__title {
+    margin-top: 25px;
+    margin-bottom: 25px;
+    font-size: 3rem;
+}
+
+.participants-table-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+th {
+    background-color: #3b82f6;
+    color: white;
+    padding: 14px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+th, td {
+    padding: 18px;
+    text-align: center;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #ffffff;
+}
+
+tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+    transform: scale(1.02);
+    transition: 0.2s ease-in-out;
+}
+
+td img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: block;
+    z-index: 9998; 
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: 300px;
+    background-color: #fff;
+    display: block;
+    z-index: 9999;
+    border-radius: 16px;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.popup-text {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.copy-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.copy-btn:hover {
+    background-color: #0056b3;
+}
+
+.popup.hidden,
+.overlay.hidden {
+    display: none;
+}
