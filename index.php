@@ -39,15 +39,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>Fill this form</title>
     <link rel="stylesheet" href="src/assets/css/styles.css" type="text/css">
     <script src="https://kit.fontawesome.com/4703f4607d.js" defer crossorigin="anonymous"></script>
-    <script src="src/assets/js/tabs_form.js" defer></script>
     <script src="src/assets/js/get_countries.js" defer></script>
+    <script src="src/assets/js/tabs_form.js" defer></script>
     <script src="src/assets/js/number_validate.js" defer></script>
     <script src="src/assets/js/popup.js" defer></script>
 </head>
 <body>
     <div class="page">
         <p class="google__map">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3303.761550164158!2d-118.34625852376647!3d34.10124851514021!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bf20e4c82873%3A0x14015754d926dadb!2s7060%20Hollywood%20Blvd%2C%20Los%20Angeles%2C%20CA%2090028%2C%20USA!5e0!3m2!1sen!2sua!4v1740995988251!5m2!1sen!2sua" width="1920" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe id="mapFrame" 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21828.30710106038!2d-118.36913701796254!3d34.103465255210715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bf20e4c82873%3A0x14015754d926dadb!2s7060%20Hollywood%20Blvd%2C%20Los%20Angeles%2C%20CA%2090028%2C%20USA!5e0!3m2!1sen!2sua!4v1741160502393!5m2!1sen!2sua" 
+        style="border:0; height: 450px;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
         </p>
         <div class="page__content">
             <h1 class="form__title">
@@ -80,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <div class="form__field">
                         <label for="country__input">Country <span class="required">*</span></label>
                         <select name="country__input" id="countrySelect" required>
-                            <option value="">Select a country</option>
+                        <option selected>...</option>
                         </select>
                     </div>
 
@@ -138,5 +144,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             </section>        
         </div>
     </div>
+
+<script>
+    function resizeMap() {
+        const iframe = document.getElementById("mapFrame");
+        iframe.width = window.innerWidth;
+        iframe.height = 450; 
+    }
+
+    window.addEventListener("load", resizeMap);
+    window.addEventListener("resize", resizeMap);
+</script>
 </body>
 </html>

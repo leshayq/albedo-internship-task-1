@@ -12,7 +12,6 @@ document.querySelectorAll("input[name='first-name__input'], input[name='last-nam
     });
     
 
-
 if (localStorage.getItem("currentTab")) {
     currentTab = parseInt(localStorage.getItem("currentTab"));
 }
@@ -59,6 +58,7 @@ function nextPrev(n) {
 
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector(".form");
+    const countrySelect = document.getElementById("countrySelect");
 
     form.querySelectorAll("input, select, textarea").forEach(field => {
         const savedValue = localStorage.getItem(field.name);
@@ -71,6 +71,11 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
+    const savedCountry = localStorage.getItem("country__input");
+    if (savedCountry) {
+        countrySelect.value = savedCountry;
+    }
+
     form.addEventListener("input", function (event) {
         const field = event.target;
         if (field.name) {
@@ -82,11 +87,10 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    form.addEventListener("submit", function () {
-        form.querySelectorAll("input, select, textarea").forEach(field => {
-            localStorage.removeItem(field.name);
-        });
+    countrySelect.addEventListener("change", function () {
+        localStorage.setItem("country__input", countrySelect.value);
     });
+
 });
 
 function submitForm() {
@@ -126,12 +130,18 @@ function resetForm() {
 
 function validateForm() {
     var firstTabFields = document.querySelectorAll("#general__section input[required], #general__section textarea[required]");
+    var countrySelect = document.getElementById("countrySelect");
 
     for (var i = 0; i < firstTabFields.length; i++) {
         if (firstTabFields[i].value.trim() === "") {
             alert("Please fill all required fields before moving to the next tab.");
             return false;
         }
+    }
+
+    if (countrySelect.value === "...") {  
+        alert("Please fill all required fields before moving to the next tab.");
+        return false;
     }
 
     return true;
