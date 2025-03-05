@@ -10,7 +10,6 @@ document.querySelectorAll("input[name='first-name__input'], input[name='last-nam
             this.value = this.value.replace(/[^\p{L}\s-]/gu, ""); 
         });
     });
-    
 
 if (localStorage.getItem("currentTab")) {
     currentTab = parseInt(localStorage.getItem("currentTab"));
@@ -29,6 +28,13 @@ function showTab(n) {
         document.querySelector('form').style.display = 'none';
     }
     x[n].style.display = "block";
+
+    const prevBtn = document.getElementById('prevBtn');
+    if (n === 1) { 
+        prevBtn.style.display = "inline-block";
+    } else {
+        prevBtn.style.display = "none";
+    }
 
     if (n == 1) { 
         var nextBtn = document.getElementById('nextBtn');
@@ -54,7 +60,6 @@ function nextPrev(n) {
 
     showTab(currentTab);
 }
-
 
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector(".form");
@@ -126,7 +131,6 @@ function resetForm() {
     form.reset();
     localStorage.removeItem("formSubmitted");
 }
-
 
 function validateForm() {
     var firstTabFields = document.querySelectorAll("#general__section input[required], #general__section textarea[required]");

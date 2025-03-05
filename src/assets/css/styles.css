@@ -91,7 +91,7 @@ textarea {
 }
 
 
-#nextBtn {
+#nextBtn, #prevBtn {
     background-color: #3b82f6;
     color: white;
     border: none;
@@ -105,7 +105,7 @@ textarea {
     align-self: flex-end;
 }
 
-#nextBtn:hover {
+#nextBtn:hover, #prevBtn:hover {
     background-color: #2563eb;
 }
 
@@ -262,4 +262,9 @@ td img {
 .required {
     color: red;
     font-weight: bold;
+}
+
+.nav__buttons {
+    display: flex;
+    justify-content: space-between;
 }

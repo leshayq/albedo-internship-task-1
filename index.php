@@ -123,7 +123,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <input name='photo__input' type="file" accept="image/png, image/jpeg">
                     </div>
                 </section>
-                <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                <div class="nav__buttons">
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)" style="display:none;">Back</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                </div>
             </form>
 
             <section id="share__section" class="tab">
